@@ -1,0 +1,25 @@
+.accordion-item {
+  border: 1px solid;
+  border-radius: 12px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  margin: 0;
+}
+
+.accordion-button {
+  all: unset;
+  font-size: 18px;
+  padding: 10px;
+  background: #F0F0F0;
+  width: 100%;
+  box-sizing: border-box;
+  /* border-radius: 15px; */
+}
+
+.accordion-collapse {
+  display: none;
+} 
+.accordion-collapse[data-show="1"] { display: block; }
