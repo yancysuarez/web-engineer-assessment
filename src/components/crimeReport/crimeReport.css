@@ -4,3 +4,27 @@ header {
   text-transform: uppercase;
   background: #F0F0F0;
 }
+
+.switch-mode-container {
+  width: 100%;
+  text-align: right;
+}
+
+.switch-mode-button {
+  all: unset;
+  width: 20%;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px 5px;
+  border: 1px solid #0077B6;
+  border-radius: 5px;
+  margin-top: 20px;
+  background: #0077B6;
+  color: #FFF;
+}
+.switch-mode-button:hover,
+.switch-mode-button:active {
+  background-color: #3392C5;
+  border-color: #3392C5;
+  cursor: pointer;
+}

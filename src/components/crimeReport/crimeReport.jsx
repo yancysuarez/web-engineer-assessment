@@ -1,17 +1,22 @@
+import { useState } from "react"
+
 import Accordion from "../accordion/accordion"
 import crimeRecord from "../../data/crimeRecords.json"
 
 import "./crimeReport.css"
 
-// import { useState } from "react"
-
-console.log({crimeRecord})
-
 const CrimeReport = () => {
+  const [grouping, setGrouping] = useState('Suburb - Incident')
+  const newGrouping = grouping === "Suburb - Incident" ? "Offence Level 2 Description" : "Suburb - Incident"
+
+  const handleSwitchGroupClick = (grouping) => {
+    setGrouping(grouping)
+  }
+
   // Group the crime records
   let crimeRecordGrouped = {}
   crimeRecord.forEach(record => {
-    const key = 'Suburb - Incident'
+    const key = grouping
 
     if (!crimeRecordGrouped[record[key]])
       crimeRecordGrouped[record[key]] = []
@@ -34,9 +39,6 @@ const CrimeReport = () => {
   }
   console.log({crimeRecordFormatted})
 
-  // const [xxx, setXxx] = useState(0)
-
-  // setXxx(crimeRecordFormatted)
   return (
     <div>
       <header>
@@ -44,6 +46,11 @@ const CrimeReport = () => {
       </header>
  
       <div className="page-body">
+        <div className="switch-mode-container">
+          <button className="switch-mode-button" onClick={() => {
+            handleSwitchGroupClick(newGrouping)
+          }}>Group by {newGrouping}</button>
+        </div>
         <Accordion contents={crimeRecordFormatted} />
       </div>
     </div>

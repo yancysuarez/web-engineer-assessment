@@ -6,7 +6,6 @@ const Accordion = ({ contents }) => {
   const [ active, setActive ] = useState(contents[0]['header'])
 
   const handleClick = (header) => {
-    console.log("waka")
     setActive(header)
   }
 
