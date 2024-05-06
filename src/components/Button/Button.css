@@ -1,0 +1,19 @@
+button {
+  all: unset;
+
+  font-size: 14px;
+  text-align: center;
+  padding: 10px 5px;
+  border: 1px solid #0077B6;
+  border-radius: 5px;
+
+  background: #0077B6;
+  color: #FFF;
+}
+button:hover,
+button:active {
+  background-color: #3392C5;
+  border-color: #3392C5;
+  cursor: pointer;
+}
+

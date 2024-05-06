@@ -1,4 +1,4 @@
-import CrimeReport from "./components/crimeReport/crimeReport";
+import CrimeReport from "./components/CrimeReport/CrimeReport";
 
 import "./App.css"
 

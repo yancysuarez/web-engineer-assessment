@@ -1,16 +1,22 @@
-import { useState } from "react"
 
-import Accordion from "../accordion/accordion"
+import "./CrimeReport.css"
+
+import Button from "../Button/Button"
+import Header from "../Header/Header"
+import Table from "../Table/Table"
+import Accordion from "../Accordion/Accordion"
+
 import crimeRecord from "../../data/crimeRecords.json"
 
-import "./crimeReport.css"
+import { useState } from "react"
 
 const CrimeReport = () => {
   const [grouping, setGrouping] = useState('Suburb - Incident')
   const newGrouping = grouping === "Suburb - Incident" ? "Offence Level 2 Description" : "Suburb - Incident"
+  const newGroupBtnTxt = "Group by " + newGrouping 
 
-  const handleSwitchGroupClick = (grouping) => {
-    setGrouping(grouping)
+  const handleSwitchGroupClick = () => {
+    setGrouping(newGrouping)
   }
 
   // Group the crime records
@@ -34,23 +40,20 @@ const CrimeReport = () => {
   for (let key in crimeRecordGrouped) {
     crimeRecordFormatted.push({
       "header": key,
-      "body": crimeRecordGrouped[key]
+      "body": (<Table contents={crimeRecordGrouped[key]}/>)
     })
   }
   console.log({crimeRecordFormatted})
 
   return (
     <div>
-      <header>
-        Crime Report Page
-      </header>
+      <Header text="Crime Report Page"/>
  
       <div className="page-body">
         <div className="switch-mode-container">
-          <button className="switch-mode-button" onClick={() => {
-            handleSwitchGroupClick(newGrouping)
-          }}>Group by {newGrouping}</button>
+          <Button text={newGroupBtnTxt} onClick={handleSwitchGroupClick}/>
         </div>
+
         <Accordion contents={crimeRecordFormatted} />
       </div>
     </div>

@@ -1,31 +1,26 @@
-import "./table.css"
+import "./Table.css"
 
 const Table = ({ contents }) => {
-  const tableContent = contents[0]
-
-  console.log({tableContent})
-
   // Get the Table Headers
-  const tableHeaders = []
-  for (let key in tableContent[0]) {
-    tableHeaders.push(key)
-  }
+  const tableHeaders = Object.keys(contents[0])
 
   return (
-    <table className="table">
+    <table className="table" data-testid="table">
       <thead className="table-header text-center" >
-        <tr>
-          { tableHeaders.map(val => (<th key={val}>{val}</th>)) }
+        <tr key="table-header">
+          { tableHeaders.map(val => (<th key={val} data-testid="table-columns">{val}</th>)) }
         </tr>
       </thead>
       <tbody className="table-body text-center">
         {
-          tableContent.map((row) => {
-            let xxx = []
-            for (let key in row) {
-              xxx.push(row[key])
-            }
-            return (<tr>{xxx.map(x => (<td>{x}</td>))}</tr>)
+          contents.map((row) => {
+            // Get the row values
+            const rowValues = Object.values(row)
+            return (
+              <tr data-testid="table-row" key={row["_id"]}>
+                { rowValues.map((val, i) => (<td key={i}>{val}</td>)) }
+              </tr>
+            )
           })
         }
       </tbody>

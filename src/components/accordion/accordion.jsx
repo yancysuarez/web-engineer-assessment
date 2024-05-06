@@ -1,6 +1,5 @@
 import { useState } from "react"
-import Table from "../table/table"
-import "./accordion.css"
+import "./Accordion.css"
 
 const Accordion = ({ contents }) => {
   const [ active, setActive ] = useState(contents[0]['header'])
@@ -22,7 +21,7 @@ const Accordion = ({ contents }) => {
             
             <div className="accordion-collapse collapse" data-show={active === content['header'] ? "1" : "0"}>
               <div className="accordion-body">
-                <Table contents={[content['body']]} />
+                {content['body']}
               </div>
             </div>
           </div>
