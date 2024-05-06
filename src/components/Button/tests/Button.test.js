@@ -3,7 +3,7 @@ import Button from '../Button';
 
 const mockedOnClick = jest.fn()
 
-describe("Test Button Component", () => {
+describe("Button", () => {
   test('should render same text passed into text prop', () => {
     render(<Button text="my text" onClick={mockedOnClick}/>);
   

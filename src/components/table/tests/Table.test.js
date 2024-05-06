@@ -8,7 +8,7 @@ const mockTableData = [
   { "col1": "row4 - value 1", "col2": "row4 - value 2" }
 ]
 
-describe("Test Table Component", () => {
+describe("Table", () => {
   test('should render table in body', () => {
     render(<Table contents={mockTableData}/>)
   
